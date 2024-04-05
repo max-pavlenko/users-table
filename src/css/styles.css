@@ -1,0 +1,22 @@
+@import "reset.css";
+@import "toast.css";
+
+:root {
+  --bd-radius: 6px;
+  --white: #fff;
+  --info-color: #2E8FF0;
+  --danger-color: #F44682;
+  --disabled-color: #D1D1D1;
+  --toast-success-rgb: 102 187 106;
+  --toast-error-rgb: 239 125 160;
+}
+
+body {
+  min-height: 100lvh;
+  font-family: "Google Sans", sans-serif;
+  background: #eff1f5;
+}
+
+.danger-bg.danger-bg {
+  background-color: var(--danger-color);
+}

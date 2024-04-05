@@ -1,0 +1,10 @@
+:host {
+  height: 100lvh;
+  display: grid;
+  place-items: center;
+}
+
+.header {
+  padding: 16px 12px;
+  border-bottom: 1px solid #000;
+}

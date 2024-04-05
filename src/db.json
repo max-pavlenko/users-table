@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": "b",
+      "username": "testr2",
+      "firstName": "test2",
+      "lastName": "tw",
+      "email": "tes12t@mail.co",
+      "type": "Administrator",
+      "password": "12345678"
+    },
+    {
+      "id": "c",
+      "username": "testr3",
+      "firstName": "test3",
+      "lastName": "Thre",
+      "email": "tes123t@mail.co",
+      "type": "Administrator",
+      "password": "12345678"
+    },
+    {
+      "id": "5556bc98-0a0c-4790-a692-189ff1e94da2",
+      "username": "asd1",
+      "firstName": "asd1",
+      "lastName": "asd",
+      "email": "asd@asd.cs",
+      "type": "Regular",
+      "password": "http://localhost:4200/1",
+      "confirmPassword": "http://localhost:4200/1"
+    }
+  ]
+}

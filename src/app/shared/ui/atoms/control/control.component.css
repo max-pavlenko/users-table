@@ -1,0 +1,27 @@
+:host {
+  display: grid;
+  gap: 4px;
+}
+
+label {
+  text-transform: capitalize;
+}
+
+.control-wrapper {
+  padding-left: 16px;
+  gap: 4px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--bd-radius);
+  background-color: #F3F6F9;
+  font-weight: 300;
+  outline: 2px solid transparent;
+}
+
+ .control-wrapper--error {
+  outline-color: var(--danger-color);
+}
+
+.control-wrapper:has(*:focus-visible) {
+  outline-color: var(--info-color);
+}

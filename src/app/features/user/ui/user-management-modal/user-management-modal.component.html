@@ -1,0 +1,44 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <ut-modal>
+    <ng-container header>
+      <h2 class="modal__title">{{ modalTitle }}</h2>
+      <button (click)="closed.emit()" class="modal__close">
+        <img alt="close" height="24" ngSrc="/assets/icons/close.svg" width="24">
+      </button>
+    </ng-container>
+
+    <ng-container body>
+      <ut-control [controlKey]="UserManagementFormFields.Username"/>
+      <ut-control [controlKey]="UserManagementFormFields.FirstName"/>
+      <ut-control [controlKey]="UserManagementFormFields.LastName"/>
+      <ut-control [controlKey]="UserManagementFormFields.Email">
+          <img prefix alt="email" height="24" ngSrc="/assets/icons/email.svg" width="24">
+      </ut-control>
+      <ut-control [controlKey]="UserManagementFormFields.Type" [controlTemplate]="selectUserType"/>
+      <ng-template #selectUserType let-key>
+        <select [formControlName]="key" [id]="key">
+          <option [value]='UserType.ADMIN'>Admin</option>
+          <option [value]="UserType.USER">User</option>
+        </select>
+      </ng-template>
+      <div class="form__credentials" [formGroupName]="UserManagementFormFields.Credentials">
+        <ut-control [errorData]="{pattern: 'Must include at least 1 number and 1 letter'}"
+                    [controlKey]="UserCredentialsFormFields.Password" autocomplete="new-password" type="password"/>
+        <ut-control [errorData]="{pattern: 'Must include at least 1 number and 1 letter'}"
+                    [controlKey]="UserCredentialsFormFields.ConfirmPassword" autocomplete="new-password" type="password"/>
+      </div>
+      <ng-container utDynamicValidatorMessage [errorData]="{mismatch: 'Passwords dont match'}" [controlKey]="UserManagementFormFields.Credentials" />
+    </ng-container>
+
+    <ng-container footer>
+      @if (_defaultValues) {
+        <ut-button (click)="deleted.emit(_defaultValues.id)" class="danger-bg" type="button">
+          Delete
+        </ut-button>
+      }
+      <ut-button [disabled]="this.form.invalid" [style.margin-inline]="_defaultValues ? 'auto 0' : 'auto'" class="modal__save-btn" type="submit">
+        Save
+      </ut-button>
+    </ng-container>
+  </ut-modal>
+</form>

@@ -1,0 +1,9 @@
+<label [for]="_controlKey">{{ label }}{{ isRequired && '*' }}</label>
+<div [class.control-wrapper--error]="hasError" [controlKey]="_controlKey" class="control-wrapper" [errorData]="errorData" utDynamicValidatorMessage>
+  <ng-content select="[prefix]"/>
+  @if (controlTemplate) {
+    <ng-container *ngTemplateOutlet="controlTemplate; context: {$implicit: _controlKey, type}"/>
+  } @else {
+    <input [type]="type" [autocomplete]="autocomplete" [formControlName]="_controlKey" [id]="_controlKey">
+  }
+</div>

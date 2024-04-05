@@ -1,0 +1,25 @@
+:host {
+  display: inline-block;
+  color: var(--white);
+  background-color: var(--info-color);
+  border-radius: var(--bd-radius);
+  box-shadow: 0 5px 8px #2E8FF029;
+}
+
+button {
+  background: transparent;
+  padding: 12px 20px;
+  color: inherit;
+  text-align: center;
+  min-width: 120px;
+  font-size: 16px;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+:host:has(button:disabled) {
+  background-color: var(--disabled-color);
+}
+:host:has(button:disabled) button {
+  cursor: not-allowed;
+}

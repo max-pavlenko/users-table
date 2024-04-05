@@ -1,0 +1,22 @@
+.modal {
+  padding: 26px;
+  background-color: var(--white);
+  display: grid;
+  gap: 30px;
+  border-radius: var(--bd-radius);
+}
+
+.modal__header {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal__footer, .modal__header {
+  display: flex;
+}
+
+.modal__body {
+  display: grid;
+  gap: 16px;
+}
+

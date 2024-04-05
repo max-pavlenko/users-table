@@ -1,0 +1,19 @@
+:host {
+  width: 100%;
+  box-shadow: 0 0 30px #523F690D;
+}
+
+.modal__title {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.modal__close {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.form__credentials {
+  display: grid;
+  gap: 16px;
+}
