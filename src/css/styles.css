@@ -9,6 +9,7 @@
   --disabled-color: #D1D1D1;
   --toast-success-rgb: 102 187 106;
   --toast-error-rgb: 239 125 160;
+  --common-padding: 16px;
 }
 
 body {

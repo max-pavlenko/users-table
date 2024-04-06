@@ -8,7 +8,7 @@ label {
 }
 
 .control-wrapper {
-  padding-left: 16px;
+  padding-left: var(--common-padding);
   gap: 4px;
   display: flex;
   align-items: center;

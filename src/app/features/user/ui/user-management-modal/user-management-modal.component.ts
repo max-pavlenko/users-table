@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@
 import {ModalComponent} from '../../../../shared/ui/atoms/modal/modal.component';
 import {ButtonComponent} from '../../../../shared/ui/atoms/button/button.component';
 import {FormControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
-import {UserCredentialsFormFields, UserManagementFormFields} from './user-fields';
+import {UserCredentialsFormFields, UserManagementFormFields} from './user-fields.type';
 import {JsonPipe, NgOptimizedImage, NgStyle} from '@angular/common';
 import {ControlComponent} from '../../../../shared/ui/atoms/control/control.component';
 import {matchValidator} from '../../../../shared/validators/matches.validator';
@@ -55,22 +55,22 @@ export class UserManagementModalComponent {
     }, {
       validators: matchValidator(UserCredentialsFormFields.Password, UserCredentialsFormFields.ConfirmPassword),
     }),
-    [UserManagementFormFields.Type]: this.fb.control<UserType>(UserType.USER, [Validators.required]),
+    [UserManagementFormFields.Type]: this.fb.control<UserType>(UserType.User, [Validators.required]),
   },);
 
   constructor(private fb: NonNullableFormBuilder) {
   }
 
   get modalTitle() {
-    return this._defaultValues ? `${this._defaultValues.firstName} ${this._defaultValues.lastName}` : 'Create User';
+    return this._defaultValues ? `${this._defaultValues.firstName} ${this._defaultValues.lastName}` : 'Create new user';
   }
 
   onSubmit() {
     if (this.form.invalid) {
       return;
     }
-    const {credentials, ...value} = this.form.getRawValue();
-    this.submitted.emit({id: this._defaultValues?.id ?? crypto.randomUUID(), ...value, ...credentials});
+    const {credentials: {password}, ...restForm} = this.form.getRawValue();
+    this.submitted.emit({id: this._defaultValues?.id ?? crypto.randomUUID(), password, ...restForm});
   }
 
   protected readonly UserManagementFormFields = UserManagementFormFields;

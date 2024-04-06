@@ -17,9 +17,11 @@ button {
   cursor: pointer;
 }
 
-:host:has(button:disabled) {
-  background-color: var(--disabled-color);
-}
-:host:has(button:disabled) button {
+button:disabled {
   cursor: not-allowed;
+}
+
+:host(.disabled) {
+  background-color: var(--disabled-color);
+  color: #333;
 }

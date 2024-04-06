@@ -2,3 +2,7 @@
   font-size: 13px;
   color: var(--danger-color);
 }
+
+:host(.hidden) {
+  display: none;
+}

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, HostBinding, Input} from '@angular/core';
 
 @Component({
   selector: 'ut-button',
@@ -11,4 +11,8 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 export class ButtonComponent {
   @Input() disabled = false;
   @Input() type: HTMLButtonElement['type'] = 'button';
+
+  @HostBinding('class.disabled') get isDisabled() {
+    return this.disabled;
+  }
 }

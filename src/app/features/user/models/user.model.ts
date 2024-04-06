@@ -9,6 +9,6 @@ export interface User {
 }
 
 export enum UserType {
-  ADMIN = 'Administrator',
-  USER = 'Regular',
+  Admin = 'Administrator',
+  User = 'Regular',
 }

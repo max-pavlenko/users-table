@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output, TemplateRef} from '@angular/core';
 import {JsonPipe, NgClass, NgStyle, NgTemplateOutlet} from '@angular/common';
-import {Unique} from '../../../types/utils';
+import {Unique} from '../../../types/utils.type';
 import {CellContext, Column} from './table';
 
 @Component({
@@ -37,7 +37,7 @@ export class TableComponent<T extends Unique> {
     return this._columns.map(() => `${1 / (this._columns.length || 1) * 100}%`);
   }
 
-  areRowsClickable() {
+  get areRowsClickable() {
     return this.rowClicked.observed;
   }
 

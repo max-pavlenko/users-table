@@ -1,11 +1,11 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {TableComponent} from '../../shared/ui/atoms/table/table.component';
-import {Column} from '../../shared/ui/atoms/table/table';
+import {ChangeDetectionStrategy, Component, HostBinding} from '@angular/core';
+import {TableComponent} from '../../../shared/ui/atoms/table/table.component';
+import {Column} from '../../../shared/ui/atoms/table/table';
 import {AsyncPipe, NgClass} from '@angular/common';
-import {ButtonComponent} from '../../shared/ui/atoms/button/button.component';
-import {UserManagementModalComponent} from '../../features/user/ui/user-management-modal/user-management-modal.component';
-import {UserService} from '../../features/user/services/user.service';
-import {User} from '../../features/user/models/user.model';
+import {ButtonComponent} from '../../../shared/ui/atoms/button/button.component';
+import {UserManagementModalComponent} from '../../../features/user/ui/user-management-modal/user-management-modal.component';
+import {UserService} from '../../../features/user/services/user.service';
+import {User} from '../../../features/user/models/user.model';
 import {ToastrService} from 'ngx-toastr';
 
 @Component({
@@ -35,6 +35,10 @@ export default class HomeComponent {
   users$ = this.userService.getAll();
 
   constructor(protected userService: UserService, private toast: ToastrService) {
+  }
+
+  @HostBinding('class.gap') get isGap() {
+    return this.isUserManagementModalOpen;
   }
 
   closeUserManagementModal() {

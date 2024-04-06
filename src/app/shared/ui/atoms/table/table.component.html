@@ -1,7 +1,7 @@
 <div class="table">
   <ul class="table__row--header table__row">
     @for (column of _columns; track column.key) {
-      <li [ngStyle]="{width: columnWidths[$index]}" class="table__cell--bold">{{ column.label }}</li>
+      <li [style.width]="columnWidths[$index]" class="table__cell table__cell--bold">{{ column.label }}</li>
     }
   </ul>
   <div class="table__body">
@@ -9,11 +9,11 @@
     <ul [ngClass]="{'table__row--active': isRowSelected(item), clickable: areRowsClickable}"
         class="table__row table__row--body" (click)="onSelectedRow(item)">
       @for (column of _columns; track column.key) {
-        <li [ngStyle]="{width: columnWidths[$index]}" class="table__cell">
+        <li [style.width]="columnWidths[$index]" class="table__cell">
           @if (cellTemplate) {
-            <ng-template *ngTemplateOutlet="cellTemplate; context: { $implicit: item, column }"/>
+            <ng-container *ngTemplateOutlet="cellTemplate; context: { $implicit: item, column }"/>
           } @else {
-            <ng-container>{{ item[column.key] }}</ng-container>
+            {{ item[column.key] }}
           }
         </li>
       }

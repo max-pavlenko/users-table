@@ -17,8 +17,8 @@
       <ut-control [controlKey]="UserManagementFormFields.Type" [controlTemplate]="selectUserType"/>
       <ng-template #selectUserType let-key>
         <select [formControlName]="key" [id]="key">
-          <option [value]='UserType.ADMIN'>Admin</option>
-          <option [value]="UserType.USER">User</option>
+          <option [value]='UserType.Admin'>Admin</option>
+          <option [value]="UserType.User">User</option>
         </select>
       </ng-template>
       <div class="form__credentials" [formGroupName]="UserManagementFormFields.Credentials">
